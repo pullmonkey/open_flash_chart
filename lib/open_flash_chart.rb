@@ -20,7 +20,11 @@ class OpenFlashChart
     # 7) grid_colour as grid-colour
     # 8) threed as 3d
     # 9) tick_length as tick-length
-    self.to_json.gsub("threed","3d").gsub("_","-")
+    to_return = self.to_json.gsub("threed","3d")
+    %w(font_size dot_size outline_colour halo_size start_angle tick_height grid_colour tick_length).each do |replace|
+      to_return = to_return.gsub(replace, replace.gsub("_", "-"))
+    end
+    return to_return
   end
   alias_method :render, :to_s
 

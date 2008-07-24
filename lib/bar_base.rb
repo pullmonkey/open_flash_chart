@@ -1,0 +1,2 @@
+class BarBase < OpenFlashChart
+end

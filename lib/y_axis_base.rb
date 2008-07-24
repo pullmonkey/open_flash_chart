@@ -1,0 +1,2 @@
+class YAxisBase < OpenFlashChart
+end

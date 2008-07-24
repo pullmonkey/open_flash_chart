@@ -60,10 +60,10 @@ class OpenFlashChart
 
   def method_missing(method_name, *args)
     method_name = method_name.to_s
-    if method_name =~ /.*=/   # i.e., if it is something x_legend=
+    if method_name =~ /(.*)=/   # i.e., if it is something x_legend=
       # if the user wants to set an instance variable then let them
       # the other args (args[0]) are ignored since it is a set method
-      return self.instance_variable_set("@#{method_name}", args[0])
+      return self.instance_variable_set("@#{$1}", args[0])
     elsif method_name =~/^set_(.*)/
       # backwards compatible ... the user can still use the same set_y_legend methods if they want
       return self.instance_variable_set("@#{$1}", args[0])

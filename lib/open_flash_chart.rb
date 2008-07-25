@@ -58,6 +58,17 @@ class OpenFlashChart
     @grid_colour = grid_colour
   end
 
+  # for some reason the json that needs to be produced is like this:
+  # "x_axis": { "offset": false, "labels": { "labels": [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ] } } 
+  # note the "labels":{"labels": ....}
+  def set_labels(labels)
+    @labels = {:labels => labels}
+  end
+  
+  def labels=(labels)
+    @labels = {:labels => labels}
+  end
+
   def method_missing(method_name, *args)
     method_name = method_name.to_s
     if method_name =~ /(.*)=/   # i.e., if it is something x_legend=

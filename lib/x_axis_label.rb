@@ -1,7 +1,7 @@
 class XAxisLabel < OpenFlashChart
   def initialize(text, colour, size, rotate)
     @text = text
-    @colour = color
+    @colour = colour
     @size = size
     @rotate = rotate
   end

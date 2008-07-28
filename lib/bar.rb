@@ -7,3 +7,10 @@ class Bar < BarBase
     super
   end
 end
+
+class BarValue < OpenFlashChart
+  def initialize(top, bottom=nil)
+    @top = top
+    @bottom = bottom
+  end
+end

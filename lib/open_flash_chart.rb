@@ -69,6 +69,18 @@ class OpenFlashChart
     @labels = {:labels => labels}
   end
 
+  def set_tooltip(tip)
+    if tip.is_a?(Tooltip)
+      #we have a style for our chart's tooltips
+      @tooltip = tip
+    else
+      # the user could just use set_tip(tip) or tip=(tip) to just set the text of the tooltip
+      @tip = tip
+    end
+  end
+  alias_method "tooltip=", :set_tooltip
+  
+
   def method_missing(method_name, *args)
     method_name = method_name.to_s
     if method_name =~ /(.*)=/   # i.e., if it is something x_legend=

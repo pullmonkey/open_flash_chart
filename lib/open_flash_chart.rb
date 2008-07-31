@@ -58,17 +58,6 @@ class OpenFlashChart
     @grid_colour = grid_colour
   end
 
-  # for some reason the json that needs to be produced is like this:
-  # "x_axis": { "offset": false, "labels": { "labels": [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ] } } 
-  # note the "labels":{"labels": ....}
-  def set_labels(labels)
-    @labels = {:labels => labels}
-  end
-  
-  def labels=(labels)
-    @labels = {:labels => labels}
-  end
-
   def set_tooltip(tip)
     if tip.is_a?(Tooltip)
       #we have a style for our chart's tooltips

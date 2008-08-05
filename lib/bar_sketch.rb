@@ -1,9 +1,9 @@
 require 'bar_base'
 class BarSketch < BarBase
-  def initialize(colour, outline_color, fun_factor)
+  def initialize(colour, outline_colour, fun_factor)
     @type = "bar_sketch"
-    super
-
+    super()
+    
     @colour = colour
     @outline_colour = outline_colour
     @offset = fun_factor

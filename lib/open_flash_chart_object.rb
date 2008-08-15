@@ -6,7 +6,7 @@ def open_flash_chart_object(width, height, url, use_swfobject=true, base="/")
   special_hash = Base64.encode64(Time.now.to_f.to_s + url.to_s).gsub(/\n/,"")
   obj_id   = "chart_#{special_hash}"  # some sequencing without all the work of tracking it
   div_name = "flash_content_#{special_hash}"
-  
+  protocol = "http" # !request.nil? ? request.env["HTTPS"] || "http" : "http"
 
   # NOTE: users should put this in the <head> section themselves:
   ## <script type="text/javascript" src="#{base}/javascripts/swfobject.js"></script>

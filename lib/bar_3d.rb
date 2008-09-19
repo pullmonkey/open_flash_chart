@@ -4,3 +4,9 @@ class Bar3d < BarBase
     super
   end
 end
+
+class Bar3dValue < OpenFlashChart
+  def initialize(top)
+    @top = top
+  end
+end 

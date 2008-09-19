@@ -1,7 +1,6 @@
-class AreaHollow < OpenFlashChart
+class AreaHollow < AreaBase
   def initialize
     @type = "area_hollow"
-    @fill_area = 0.35
-    @values = []
+    super
   end
 end

@@ -5,11 +5,9 @@ class HBarValue < OpenFlashChart
   end
 end
 class HBar < OpenFlashChart
-  def initialize
+  def initialize(color="#9933CC")
     @type = "hbar"
-    @colour = "#9933CC"
-    @text = "Page Views"
-    @font_size = 10
+    @colour = color
     @values = []
   end
 end

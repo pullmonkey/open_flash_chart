@@ -1,12 +1,3 @@
-require 'bar_base'
-
-class BarStackValue < OpenFlashChart
-  def initialize(val,colour)
-    @val    = val
-    @colour = colour
-  end
-end
-
 class BarStack < BarBase
   def initialize
     @type = "bar_stack"
@@ -15,3 +6,11 @@ class BarStack < BarBase
 
   alias_method :append_stack, :append_value
 end
+
+class BarStackValue < OpenFlashChart
+  def initialize(val,colour)
+    @val    = val
+    @colour = colour
+  end
+end
+

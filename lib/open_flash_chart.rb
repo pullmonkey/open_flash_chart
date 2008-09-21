@@ -1,5 +1,6 @@
 # OpenFlashChart
 class OpenFlashChart
+  include OFCAjax
 
   def initialize(args={})
     # set all the instance variables we want
@@ -9,7 +10,8 @@ class OpenFlashChart
     end
   end
 
-  def to_s
+  # same as to_s but won't stack overflow ... use this instead of to_s
+  def render
     # need to return the following like this
     # 1) font_size as font-size 
     # 2) dot_size as dot-size
@@ -26,7 +28,8 @@ class OpenFlashChart
     end
     return to_return
   end
-  alias_method :render, :to_s
+  # for those still using to_s and that do not get a stack overflow
+  alias_method :to_s, :render
 
   def add_element(element)
     @elements ||= []

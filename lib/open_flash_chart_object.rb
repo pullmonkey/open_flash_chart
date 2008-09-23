@@ -3,7 +3,9 @@ def open_flash_chart_object(width, height, url, use_swfobject=true, base="/")
   # need something that will not be repeated on the same request
   # need the gsub at the end to first get the last newline (which could simply be done with chomp)
   # and second get the newlines in the middle of the encoded string
-  special_hash = Base64.encode64(Time.now.to_f.to_s + url.to_s).gsub(/\n/,"")
+  #special_hash = Base64.encode64(Time.now.to_f.to_s + url.to_s).gsub(/\n/,"")
+  # Fix for bug in IE
+  special_hash = Base64.encode64(Digest::SHA1.digest("#{rand(1<<64)}/#{Time.now.to_f}/#{Process.pid}/#{url}"))[0..7]
   obj_id   = "chart_#{special_hash}"  # some sequencing without all the work of tracking it
   div_name = "flash_content_#{special_hash}"
   protocol = "http" # !request.nil? ? request.env["HTTPS"] || "http" : "http"

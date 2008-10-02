@@ -8,7 +8,7 @@ OpenFlashChart
 5) Add the following to the test_it_controller.rb in RAILS_ROOT/app/controllers:
 class TestItController < ApplicationController
   def index
-    @graph = @graph = open_flash_chart_object(600,300,"/test_it/graph_code")
+    @graph = open_flash_chart_object(600,300,"/test_it/graph_code")
   end
 
   def graph_code

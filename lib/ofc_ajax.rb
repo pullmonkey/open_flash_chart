@@ -20,8 +20,8 @@ module OFCAjax
     return %[
       <script type="text/javascript">
         function load_#{data_name}() {
-          tmp = findSWF("#{div_name}");
-          x = tmp.load(Object.toJSON(data_#{data_name}));
+          tmp_#{div_name} = findSWF("#{div_name}");
+          x = tmp_#{div_name}.load(Object.toJSON(data_#{data_name}));
         }
         var data_#{data_name} = #{self.render};
       </script>
@@ -34,10 +34,10 @@ module OFCAjax
     return %[
       <script type="text/javascript">
         function reload_#{fx_name}() {
-          tmp = findSWF("#{div_name}");
+          tmp_#{div_name} = findSWF("#{div_name}");
           new Ajax.Request('#{url}', {
             method    : 'get',
-            onSuccess : function(obj) {tmp.load(obj.responseText);},
+            onSuccess : function(obj) {tmp_#{div_name}.load(obj.responseText);},
             onFailure : function(obj) {alert("Failed to request #{url}");}});
         }
       </script>
@@ -51,14 +51,14 @@ module OFCAjax
     return %[
       <script type="text/javascript">
         function reload_#{fx_name}() {
-          tmp = findSWF("#{div_name}");
+          tmp_#{div_name} = findSWF("#{div_name}");
           new Ajax.Request('#{url}', {
             method    : 'get',
-            onSuccess : function(obj) {tmp.load(obj.responseText);},
+            onSuccess : function(obj) {tmp_#{div_name}.load(obj.responseText);},
             onFailure : function(obj) {alert("Failed to request #{url}");}});
         }
       </script>
-      #{periodically_call_function("reload_#{fx_name}()", "#{frequency}")}
+      #{periodically_call_function("reload_#{fx_name}()", options)}
     ]
   end
 

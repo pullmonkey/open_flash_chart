@@ -1,4 +1,10 @@
 module OFCAjax
+  def periodically_call_function(function, options = {})
+     frequency = options[:frequency] || 10 # every ten seconds by default
+     code = "new PeriodicalExecuter(function() {#{function}}, #{frequency})"
+     ActionView::Base.new.javascript_tag(code)
+  end
+  
   def js_open_flash_chart_object(div_name, width, height, base="/")
     return %[
       <script type="text/javascript">
@@ -25,7 +31,6 @@ module OFCAjax
 
   def link_to_remote_ofc_load(link_text, div_name, url)
     fx_name = "#{link_text.gsub(" ","_")}_#{div_name.gsub(" ","_")}"
-    #    url = CGI::escape(url)
     return %[
       <script type="text/javascript">
         function reload_#{fx_name}() {
@@ -37,6 +42,23 @@ module OFCAjax
         }
       </script>
       #{ActionView::Base.new.link_to_function link_text, "reload_#{fx_name}()"}
+    ]
+  end
+  
+  def periodically_call_to_remote_ofc_load(div_name, url, options={})
+    fx_name = "#{div_name.gsub(" ","_")}"
+    frequency = options[:frequency] || 10 # every ten seconds by default
+    return %[
+      <script type="text/javascript">
+        function reload_#{fx_name}() {
+          tmp = findSWF("#{div_name}");
+          new Ajax.Request('#{url}', {
+            method    : 'get',
+            onSuccess : function(obj) {tmp.load(obj.responseText);},
+            onFailure : function(obj) {alert("Failed to request #{url}");}});
+        }
+      </script>
+      #{periodically_call_function("reload_#{fx_name}()", "#{frequency}")}
     ]
   end
 

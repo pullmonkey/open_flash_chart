@@ -7,4 +7,8 @@ class AreaBase < OpenFlashChart
   def set_fill_colour(color)
     @fill = color
   end 
+
+  def set_loop
+    @loop = true
+  end
 end

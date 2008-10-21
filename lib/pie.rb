@@ -9,6 +9,10 @@ class PieValue < OpenFlashChart
     self.label_colour = label_color
     self.font_size    = font_size
   end
+  
+  def on_click(event)
+    @on_click = event
+  end
 end
 
 class Pie < OpenFlashChart
@@ -20,5 +24,9 @@ class Pie < OpenFlashChart
 
   def set_no_labels
     self.no_labels = true
+  end
+
+  def on_click(event)
+    @on_click = event
   end
 end

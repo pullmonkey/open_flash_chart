@@ -10,4 +10,12 @@ class Tooltip < OpenFlashChart
   def set_background_colour(bg)
     @background = bg
   end
+
+  def set_proximity
+    @mouse = 1
+  end
+
+  def set_hover
+    @mouse = 2
+  end
 end

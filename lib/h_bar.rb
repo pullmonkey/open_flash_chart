@@ -1,7 +1,7 @@
 class HBarValue < OpenFlashChart
-  def initialize(left,right)
+  def initialize(left,right=nil)
     @left  = left
-    @right = right
+    @right = right || left
   end
 end
 class HBar < OpenFlashChart
@@ -9,5 +9,11 @@ class HBar < OpenFlashChart
     @type = "hbar"
     @colour = color
     @values = []
+  end
+
+  def set_values(v)
+    v.each do |val|
+      append_value(HBarValue.new(val))
+    end
   end
 end

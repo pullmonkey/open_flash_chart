@@ -1,90 +1,33 @@
-# OpenFlashChart
-class OpenFlashChart
-  include OFCAjax
+require 'open_flash_chart/base'
+require 'open_flash_chart/bar_base'
+require 'open_flash_chart/bar'
+require 'open_flash_chart/bar_3d'
+require 'open_flash_chart/bar_glass'
+require 'open_flash_chart/bar_sketch'
+require 'open_flash_chart/bar_filled'
+require 'open_flash_chart/bar_stack'
+require 'open_flash_chart/h_bar'
+require 'open_flash_chart/line_base'
+require 'open_flash_chart/line'
+require 'open_flash_chart/line_dot'
+require 'open_flash_chart/line_hollow'
+require 'open_flash_chart/pie'
+require 'open_flash_chart/scatter'
+require 'open_flash_chart/title'
+require 'open_flash_chart/x_axis_label'
+require 'open_flash_chart/x_axis_labels'
+require 'open_flash_chart/x_axis'
+require 'open_flash_chart/x_legend'
+require 'open_flash_chart/y_axis_base'
+require 'open_flash_chart/y_axis'
+require 'open_flash_chart/y_axis_right'
+require 'open_flash_chart/y_legend'
+require 'open_flash_chart/tooltip'
+require 'open_flash_chart/area_base'
+require 'open_flash_chart/area_hollow'
+require 'open_flash_chart/area_line'
+require 'open_flash_chart/shape'
+require 'open_flash_chart/upload_image'
 
-  def initialize(args={})
-    # set all the instance variables we want
-    # assuming something like this OpenFlashChart.new(:x_axis => 5, :y_axis => 10, :elements => ["one", "two"], ...)
-    args.each do |k,v|
-      self.instance_variable_set("@#{k}", v)
-    end
-  end
-
-  # same as to_s but won't stack overflow ... use this instead of to_s
-  def render
-    # need to return the following like this
-    # 1) font_size as font-size 
-    # 2) dot_size as dot-size
-    # 3) outline_colour as outline-colour
-    # 4) halo_size as halo-size
-    # 5) start_angle as start-angle
-    # 6) tick_height as tick-height
-    # 7) grid_colour as grid-colour
-    # 8) threed as 3d
-    # 9) tick_length as tick-length
-    to_return = self.to_json.gsub("threed","3d")
-    %w(font_size dot_size outline_colour halo_size start_angle tick_height grid_colour tick_length no_labels label_colour gradient_fill fill_alpha on_click spoke_labels).each do |replace|
-      to_return = to_return.gsub(replace, replace.gsub("_", "-"))
-    end
-    return to_return
-  end
-  # for those still using to_s and that do not get a stack overflow
-  alias_method :to_s, :render
-
-  def add_element(element)
-    @elements ||= []
-    @elements << element
-  end
-
-  def set_key(text, size)
-    @text      = text
-    @font_size = size
-  end
-  
-  def append_value(v)
-    @values ||= []
-    @values << v
-  end
-
-  def set_range(min,max,steps=1)
-    @min = min
-    @max = max
-    @steps = steps
-  end
-  
-  def set_offset(v)
-    @offset = v ? true : false
-  end
-  
-  def set_colours(colour, grid_colour)
-    @colour = colour
-    @grid_colour = grid_colour
-  end
-
-  def set_tooltip(tip)
-    if tip.is_a?(Tooltip)
-      #we have a style for our chart's tooltips
-      @tooltip = tip
-    else
-      # the user could just use set_tip(tip) or tip=(tip) to just set the text of the tooltip
-      @tip = tip
-    end
-  end
-  alias_method "tooltip=", :set_tooltip
-  
-
-  def method_missing(method_name, *args)
-    method_name = method_name.to_s
-    if method_name =~ /(.*)=/   # i.e., if it is something x_legend=
-      # if the user wants to set an instance variable then let them
-      # the other args (args[0]) are ignored since it is a set method
-      return self.instance_variable_set("@#{$1}", args[0])
-    elsif method_name =~/^set_(.*)/
-      # backwards compatible ... the user can still use the same set_y_legend methods if they want
-      return self.instance_variable_set("@#{$1}", args[0])
-    else
-      # if the method/attribute is missing and it is not a set method then hmmmm better let the user know
-      super
-    end
-  end
-end
+require 'open_flash_chart/ofc_ajax'
+require 'open_flash_chart/open_flash_chart_object'

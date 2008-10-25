@@ -1,2 +1,0 @@
-class BarBase < OpenFlashChart
-end

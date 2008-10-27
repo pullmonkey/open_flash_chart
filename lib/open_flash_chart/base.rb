@@ -22,13 +22,18 @@ module OpenFlashChart
       # 7) grid_colour as grid-colour
       # 8) threed as 3d
       # 9) tick_length as tick-length
-      returning self.to_json.gsub("threed","3d") do |output|
+      returning self.to_json do |output|
+        output.gsub!("threed","3d")
         %w(font_size dot_size outline_colour halo_size start_angle tick_height grid_colour tick_length no_labels label_colour gradient_fill fill_alpha on_click spoke_labels).each do |replace|
           output.gsub!(replace, replace.gsub("_", "-"))
         end
       end
     end
-    # for those still using to_s and that do not get a stack overflow
+
+    def to_json
+      self.instance_values.to_json
+    end    
+
     alias_method :to_s, :render
 
     def add_element(element)
@@ -77,19 +82,21 @@ module OpenFlashChart
     alias_method "tooltip=", :set_tooltip
 
 
+
     def method_missing(method_name, *args, &blk)
-      method_name = method_name.to_s
-      if method_name =~ /(.*)=/   # i.e., if it is something x_legend=
+      case method_name.to_s
+      when /(.*)=/   # i.e., if it is something x_legend=
         # if the user wants to set an instance variable then let them
         # the other args (args[0]) are ignored since it is a set method
-        return self.instance_variable_set("@#{$1}", args[0])
-      elsif method_name =~/^set_(.*)/
+        self.instance_variable_set("@#{$1}", args[0])
+      when /^set_(.*)/
         # backwards compatible ... the user can still use the same set_y_legend methods if they want
-        return self.instance_variable_set("@#{$1}", args[0])
+        self.instance_variable_set("@#{$1}", args[0])
       else
         # if the method/attribute is missing and it is not a set method then hmmmm better let the user know
         super
       end
     end
+
   end
 end

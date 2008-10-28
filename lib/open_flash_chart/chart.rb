@@ -7,4 +7,7 @@ module OpenFlashChart
     end    
   end
 
+  class OpenFlashChart < Chart
+  end
+
 end

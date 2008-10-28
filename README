@@ -8,7 +8,6 @@ OpenFlashChart
 
 5) Add the following to the test_it_controller.rb in RAILS_ROOT/app/controllers:
 class TestItController < ApplicationController
-  include OpenFlashChart
   
   def index
     respond_to do |wants|
@@ -16,7 +15,7 @@ class TestItController < ApplicationController
         @graph = open_flash_chart_object( 600, 300, url_for( :action => 'index', :format => :json ) )
       }
       wants.json { 
-        chart = OpenFlashChart::Chart.new( "MY TITLE" ) do |c|
+        chart = OpenFlashChart.new( "MY TITLE" ) do |c|
           c << BarGlass.new( :values => (1..10).sort_by{rand} )
         end
         render :text => chart, :layout => false

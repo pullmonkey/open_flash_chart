@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <%= javascript_include_tag :defaults, 'swfobject' %>
+  </head>
+  <body>
+    <%= @chart.js_open_flash_chart_object("my_chart_js_1", 550,300) %>
+    <br/><br/>
+    <%= @chart.link_to_ofc_load("Load Original Chart", "my_chart_js_1") %> ||
+    <%= @chart.link_to_remote_ofc_load("Load Chart from server data", "my_chart_js_1", "/test_it/some_server_data_line") %>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <%= javascript_include_tag :defaults, 'swfobject' %>
+  </head>
+  <body>
+    <%= @charts.first.js_open_flash_chart_object("my_chart_js_2", 550,300) %>
+    <br/><br/>
+    <% @charts.each_with_index do |chart, i| %>
+      <%= chart.link_to_ofc_load("Load Chart #{i + 1}", "my_chart_js_2") %>
+      <%= " || " if i < @charts.size - 1 %>
+    <% end %>
+  </body>
+</html>

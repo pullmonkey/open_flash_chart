@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <%#= javascript_include_tag :defaults, 'swfobject' %>
+        <script type="text/javascript" src="/javascripts/swfobject.js">
+        </script>
+        <script type="text/javascript" src="/javascripts/json2.js">
+        </script>
+        <script type="text/javascript" src="/javascripts/tutorial-js.js">
+        </script>
+        <script type="text/javascript">
+            
+            function ofc_ready(){
+                alert('ofc_ready');
+            }
+            
+            function open_flash_chart_data(){
+                // alert( 'reading data' );
+                return JSON.stringify(data);
+            }
+            
+            function findSWF(movieName){
+                if (navigator.appName.indexOf("Microsoft") != -1) {
+                    return window[movieName];
+                }
+                else {
+                    return document[movieName];
+                }
+            }
+            
+            var data = {
+                "elements": [{
+                    "type": "hbar",
+                    "values": [{
+                        "left": 0,
+                        "right": 5
+                    }, {
+                        "left": 0,
+                        "right": 3
+                    }, {
+                        "left": 4,
+                        "right": 8
+                    }, {
+                        "left": 4,
+                        "right": 8
+                    }, {
+                        "left": 4,
+                        "right": 8
+                    }],
+                    "colour": "#AF99DF"
+                }],
+                "title": {
+                    "text": "Sat Sep 27 2008"
+                },
+                "y_axis": {
+                    "labels": ["Job 1", "Job 2", "Job 3", "Job 4", "Job 5"]
+                },
+                "x_axis": {
+                    "offset": false,
+                    "min": 0,
+                    "max": 10
+                }
+            };
+        </script>
+        <script type="text/javascript">
+            swfobject.embedSWF("/open-flash-chart.swf", "my_chart", "550", "350", "9.0.0");
+        </script>
+    </head>
+    <body>
+    Here is the chart:
+    </p>
+    <div id="my_chart"></div>
+    <p>
+        <a href="javascript:update(data)">Update</a>, <a href="javascript:save(data)">Save</a>
+    </p>
+    <br/><br/>
+    </body>
+</html>

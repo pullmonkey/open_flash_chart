@@ -2,8 +2,8 @@ module OpenFlashChart
 
   class Bar3d < BarBase
     def initialize args={}
-      @type = "bar_3d"
       super
+      @type = "bar_3d"      
     end
   end
 

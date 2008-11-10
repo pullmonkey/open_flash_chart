@@ -1,9 +1,9 @@
 module OpenFlashChart
   class AreaBase < Base
     def initialize args={}
-      @fill_alpha = 0.35
-      @values = []
       super
+      @fill_alpha = 0.35
+      @values = []      
     end
 
     def set_fill_colour(color)

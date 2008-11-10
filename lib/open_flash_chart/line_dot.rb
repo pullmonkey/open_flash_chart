@@ -2,8 +2,8 @@ module OpenFlashChart
 
   class LineDot < LineBase
     def initialize args={}
-      @type = "line_dot"
       super
+      @type = "line_dot"
     end
   end
 

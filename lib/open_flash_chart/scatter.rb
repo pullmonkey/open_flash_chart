@@ -2,10 +2,10 @@ module OpenFlashChart
 
   class ScatterValue < Base
     def initialize(x,y,dot_size=nil, args={})
+      super args
       @x = x
       @y = y
-      @dot_size = dot_size if dot_size.to_i > 0
-      super args
+      @dot_size = dot_size if dot_size.to_i > 0      
     end
   end
 

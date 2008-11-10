@@ -2,8 +2,8 @@ module OpenFlashChart
 
   class LineHollow < LineBase
     def initialize args={}
-      @type = "line_hollow"
       super
+      @type = "line_hollow"
     end
   end
 

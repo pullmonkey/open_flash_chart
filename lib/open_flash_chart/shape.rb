@@ -2,9 +2,9 @@ module OpenFlashChart
 
   class ShapePoint < Base
     def initialize(x, y, args={})
-      @x = x
-      @y = y
       super args
+      @x = x
+      @y = y      
     end
   end
 

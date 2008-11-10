@@ -2,8 +2,8 @@ module OpenFlashChart
 
   class BarStack < BarBase
     def initialize args={}
-      @type = "bar_stack"
       super
+      @type = "bar_stack"      
     end
 
     alias_method :append_stack, :append_value

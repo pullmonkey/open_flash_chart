@@ -2,9 +2,9 @@ module OpenFlashChart
 
   class PieValue < Base
     def initialize(value, label, args={})
-      @value = value
-      @label = label
       super args
+      @value = value
+      @label = label      
     end
 
     def set_label(label, label_color, font_size)

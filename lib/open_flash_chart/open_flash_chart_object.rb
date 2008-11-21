@@ -6,6 +6,8 @@ module OpenFlashChart
       url      = CGI::escape(url)
       # need something that will not be repeated on the same request
       special_hash = Base64.encode64(Digest::SHA1.digest("#{rand(1<<64)}/#{Time.now.to_f}/#{Process.pid}/#{url}"))[0..7]
+      # only good characters for our div
+      special_hash = special_hash.gsub(/[^a-zA-Z0-9]/,rand(10).to_s)
       obj_id   = "chart_#{special_hash}"  # some sequencing without all the work of tracking it
       div_name = "flash_content_#{special_hash}"
       protocol = "http" # !request.nil? ? request.env["HTTPS"] || "http" : "http"

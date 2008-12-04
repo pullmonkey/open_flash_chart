@@ -48,6 +48,8 @@ module OpenFlashChart
 
   def periodically_call_to_remote_ofc_load(div_name, url, options={})
     fx_name = "#{div_name.gsub(" ","_")}"
+    # fix a bug in rails with url_for
+    url = url.gsub("&amp;","&")
     <<-OUTPUT
     <script type="text/javascript">
     function reload_#{fx_name}() {

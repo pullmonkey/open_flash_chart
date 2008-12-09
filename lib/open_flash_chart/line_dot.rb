@@ -11,8 +11,7 @@ module OpenFlashChart
     def initialize(value, colour, args={})
       @value = value
       @colour = colour
-      super
+      super(args)
     end
   end
-
 end

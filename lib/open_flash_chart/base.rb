@@ -22,9 +22,11 @@ module OpenFlashChart
       # 7) grid_colour as grid-colour
       # 8) threed as 3d
       # 9) tick_length as tick-length
+      # 10) visible_steps as visible-steps
+      # 11) key_on_click as key-on-click
       returning self.to_json2 do |output|
         output.gsub!("threed","3d")
-        %w(font_size dot_size outline_colour halo_size start_angle tick_height grid_colour tick_length no_labels label_colour gradient_fill fill_alpha on_click spoke_labels).each do |replace|
+        %w(font_size dot_size outline_colour halo_size start_angle tick_height grid_colour tick_length no_labels label_colour gradient_fill fill_alpha on_click spoke_labels visible_steps key_on_click).each do |replace|
           output.gsub!(replace, replace.gsub("_", "-"))
         end
       end

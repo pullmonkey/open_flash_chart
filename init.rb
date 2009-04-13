@@ -1,4 +1,4 @@
-require 'open_flash_chart'
+require 'ofc'
 
-ActionController::Base.send :include, OpenFlashChart
-ActiveRecord::Base.send :include, OpenFlashChart
+ActionController::Base.send :include, OFC
+ActionController::Base.send :include, OFC::Controller

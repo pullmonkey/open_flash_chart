@@ -42,6 +42,52 @@ end
 Example
 =======
 
+# GOT THIS WORKING JSON wise ... haven't really tested too much further
+data = []
+
+for i in (0..31)
+  data << Math.sin(i * 0.2) * 1.9
+end
+
+chart = OpenFlashChart::OpenFlashChart.new
+chart.title = OpenFlashChart::Title.new(:text => 'Area Chart')
+
+area = OpenFlashChart::Area.new
+area.width = 2
+area.dot_style = OpenFlashChart::HollowDot.new
+area.colour = '#838A96'
+area.fill = '#E01B49'
+area.fill_alpha = 0.4
+area.values = data
+
+chart.elements = []
+chart.elements << area
+
+y_axis = OpenFlashChart::YAxis.new
+y_axis.min = -2
+y_axis.max = 2
+y_axis.steps = 2
+
+y_axis.labels = nil
+
+y_axis.offset = 0
+
+x_axis = OpenFlashChart::XAxis.new
+x_axis.labels = data
+x_axis.steps = 2
+
+x_labels = OpenFlashChart::XAxisLables.new
+x_labels.steps = 4
+x_labels.rotate = 270
+
+x_axis.labels = x_labels
+
+chart.y_axis = y_axis
+chart.x_axis = x_axis
+
+puts chart.render
+
+
 Example above and more to follow here - http://www.pullmonkey.com/projects/open_flash_chart
 
 

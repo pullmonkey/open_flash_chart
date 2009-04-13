@@ -1,6 +1,6 @@
 module OpenFlashChart
   class Base
-    include OFCExtras
+#    include OFCExtras
 
     # set all the instance variables we want
     # assuming something like this OpenFlashChart.new(:x_axis => 5, :y_axis => 10, :elements => ["one", "two"], ...)

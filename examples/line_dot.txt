@@ -20,7 +20,7 @@
     end
 
     #$title = new title( date("D M d Y") );
-    title = OFC::Title.new(:text => Time.now.strftime("%D %M %d %Y"))
+    title = OFC::Title.new(:text => Time.now.strftime("%a %b %d %Y"))
 
     #$line_1_default_dot = new dot();
     #$line_1_default_dot->colour('#f00000');

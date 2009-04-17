@@ -35,7 +35,7 @@
     #// ------- LINE 2 -----
     #$line_2_default_dot = new dot();
     #$line_2_default_dot->size(3)->halo_size(1)->colour('#3D5C56');
-    line_2_default_dot = Dot.new(:size => 3, :halo_size => 1, :colour => '#3D5C56')
+    line_2_default_dot = Dot.new(:dot_size => 3, :halo_size => 1, :colour => '#3D5C56')
 
     #$line_2 = new line();
     #$line_2->set_default_dot_style($line_2_default_dot);
@@ -47,7 +47,7 @@
     #// ------- LINE 2 -----
     #$line_3_default_dot = new dot();
     #$line_3_default_dot->size(4)->halo_size(2);
-    line_3_default_dot = Dot.new(:size => 5, :halo_size => 2)
+    line_3_default_dot = Dot.new(:dot_size => 5, :halo_size => 2)
 
     #$line_3 = new line();
     #$line_3->set_default_dot_style($line_3_default_dot);

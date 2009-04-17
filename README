@@ -3,7 +3,7 @@ OpenFlashChart  Version 2.0.0  11/14/2008
 
 1) rails ofc2_test_app
 2) cd ofc2_test_app
-3) script/plugin install git://github.com/pullmonkey/open_flash_chart.git
+3) script/plugin install http://github.com/pullmonkey/open_flash_chart.git -r test
 4) script/generate controller test_it
 
 5) Add the following to the test_it_controller.rb in RAILS_ROOT/app/controllers:

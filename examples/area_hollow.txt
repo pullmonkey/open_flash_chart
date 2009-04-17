@@ -1,3 +1,4 @@
+  # http://teethgrinder.co.uk/open-flash-chart-2/area-hollow.php
   def area_hollow
     #$data = array();
     data = []

@@ -1,3 +1,4 @@
+  # http://teethgrinder.co.uk/open-flash-chart-2/stacked-bar-chart.php
   def stacked_bar_chart
     #$title = new title( 'Stuff I\'m thinking about, '.date("D M d Y") );
     #$title->set_style( "{font-size: 20px; color: #F24062; text-align: center;}" );

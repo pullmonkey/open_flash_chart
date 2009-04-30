@@ -1,1 +1,5 @@
 require 'ofc/examples/area_hollow.rb'
+require 'ofc/examples/line_dot.rb'
+require 'ofc/examples/line.rb'
+require 'ofc/examples/line_solid_dot.rb'
+require 'ofc/examples/stacked_bar_chart.rb'

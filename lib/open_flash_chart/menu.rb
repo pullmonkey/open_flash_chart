@@ -17,7 +17,7 @@ module OpenFlashChart
   end
 
   class Menu < Base
-    def initialize colour outline_colour
+    def initialize colour, outline_colour
       @values = []
       @colour = colour
       @outline_colour = outline_colour

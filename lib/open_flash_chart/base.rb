@@ -34,9 +34,10 @@ module OpenFlashChart
       # 19) pad_y to pad-y
       # 20) align_x to align-x
       # 21) align_y to align-y
+      # 22) dot_style to dot-style
       returning self.to_json2 do |output|
         output.gsub!("threed","3d")
-        %w(font_size dot_size outline_colour halo_size start_angle tick_height grid_colour tick_length no_labels label_colour gradient_fill fill_alpha on_click spoke_labels visible_steps key_on_click barb_length on_show negative_colour line_style javascript_function_name pad_x pad_y align_x align_y).each do |replace|
+        %w(font_size dot_size outline_colour halo_size start_angle tick_height grid_colour tick_length no_labels label_colour gradient_fill fill_alpha on_click spoke_labels visible_steps key_on_click barb_length on_show negative_colour line_style javascript_function_name pad_x pad_y align_x align_y dot_style).each do |replace|
           output.gsub!(replace, replace.gsub("_", "-"))
         end
       end

@@ -10,7 +10,7 @@ module OpenFlashChart
   end
   
   class CandleValue < Base
-    def initialize( high, open, close low, args={} )
+    def initialize( high, open, close, low, args={} )
       @top = open
       @bottom = close
       @low = low

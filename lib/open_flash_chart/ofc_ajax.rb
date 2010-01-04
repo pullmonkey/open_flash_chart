@@ -9,9 +9,9 @@ module OpenFlashChart
     def js_open_flash_chart_object(div_name, width, height, base="/")
       <<-OUTPUT
       <script type="text/javascript">
-      swfobject.embedSWF("#{base}open-flash-chart.swf", "#{div_name}", "#{width}", "#{height}", "9.0.0");
+      swfobject.embedSWF("#{base}open-flash-chart.swf", "#{div_name}", "#{width}", "#{height}", "9.0.0", "expressInstall.swf", {"get-data":"open_data_#{div_name}"});
       </script>
-      #{self.to_open_flash_chart_data}
+      #{self.to_open_flash_chart_data(div_name)}
       <div id="#{div_name}"></div>
       OUTPUT
     end
@@ -65,14 +65,14 @@ module OpenFlashChart
   end
 
 
-  def to_open_flash_chart_data
+  def to_open_flash_chart_data(id="in")
     # this builds the open_flash_chart_data js function
     <<-OUTPUT
     <script type="text/javascript">
     function ofc_ready() {
     }
-    function open_flash_chart_data() {
-      return Object.toJSON(data);
+    function open_flash_chart_data_#{id}() {
+      return Object.toJSON(data_#{id});
     }
     function findSWF(movieName) {
       if (navigator.appName.indexOf("Microsoft")!= -1) {
@@ -81,7 +81,7 @@ module OpenFlashChart
           return document[movieName];
         }
       }
-      var data = #{self.render};
+      var data_#{id} = #{self.render};
       </script>
       OUTPUT
     end

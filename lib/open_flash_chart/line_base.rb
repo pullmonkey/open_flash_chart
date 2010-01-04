@@ -3,10 +3,10 @@ module OpenFlashChart
   class LineBase < Base
     def initialize args={}
       super
-      @type = "line_dot"
+      @type = "line"
       @text = "Page Views"
       @font_size = 10
-      @values = [9,6,7,9,5,7,6,9,7]      
+      @values = []
     end
 
     def loop

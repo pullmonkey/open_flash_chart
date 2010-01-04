@@ -3,7 +3,7 @@ module OpenFlashChart
   class HBarValue < Base
     def initialize(left,right=nil, args={})
       super args
-      @left  = left
+      @left  = left if right
       @right = right || left      
     end
   end

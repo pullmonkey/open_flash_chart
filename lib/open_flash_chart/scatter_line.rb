@@ -1,11 +1,19 @@
 module OpenFlashChart
 
   class ScatterLine < Base
-    def initialize(colour, dot_size, args={})
+    def initialize(colour, width, args={})
       super args
       @type = 'scatter_line'
       @colour = colour
-      @dot_size = dot_size      
+      @width = width      
+    end
+
+    def set_step_horizonal
+      @stepgraph = 'horizontal'
+    end
+
+    def set_step_vertical
+      @stepgraph = 'vertical'
     end
   end
 

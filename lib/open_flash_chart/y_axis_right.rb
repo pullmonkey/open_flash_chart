@@ -1,3 +1,4 @@
 module OpenFlashChart
-  class YAxisRight < YAxisBase; end
+  class YAxisRight < YAxisBase
+  end
 end

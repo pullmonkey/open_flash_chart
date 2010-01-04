@@ -13,7 +13,8 @@ module OpenFlashChart
     def initialize(colour, dot_size, args={})
       @type = "scatter"
       @colour = colour
-      @dot_size = dot_size
+      @dot_style = dot_style
+      @values = []
       super args
     end
   end

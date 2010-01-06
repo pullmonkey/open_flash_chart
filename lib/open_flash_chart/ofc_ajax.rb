@@ -6,10 +6,10 @@ module OpenFlashChart
       ActionView::Base.new.javascript_tag(code)
     end
 
-    def js_open_flash_chart_object(div_name, width, height, base="/")
+    def js_open_flash_chart_object(div_name, width, height, base="/", options={})
       <<-OUTPUT
         <script type="text/javascript">
-          swfobject.embedSWF("#{base}open-flash-chart.swf", "#{div_name}", "#{width}", "#{height}", "9.0.0", "expressInstall.swf", {"get-data":"open_data_#{div_name}"});
+          swfobject.embedSWF("#{base}#{options[:open_flash_chart_swf] || "open-flash-chart.swf"}", "#{div_name}", "#{width}", "#{height}", "9.0.0", "expressInstall.swf", {"get-data":"open_flash_chart_data_#{div_name}"});
         </script>
         #{self.to_open_flash_chart_data(div_name)}
         <div id="#{div_name}"></div>

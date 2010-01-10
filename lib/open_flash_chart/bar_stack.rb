@@ -13,7 +13,7 @@ module OpenFlashChart
     def initialize(val,colour, args={})
       @val    = val
       @colour = colour
-      super
+      super(args)
     end
   end
 
@@ -22,7 +22,7 @@ module OpenFlashChart
       @colour    = colour
       @text      = text
       @font_size = font_size
-      super
+      super(args)
     end
   end
 

@@ -1,5 +1,5 @@
 module OpenFlashChart
-  class Tags < Base
+  class OFCTags < Base
     def initialize args={}
       super args
       @type   = 'tags'
@@ -52,7 +52,7 @@ module OpenFlashChart
     end
   end
 
-  class Tag < Tags
+  class OFCTag < OFCTags
     def initialize(x,y)
       super args
       @x = x

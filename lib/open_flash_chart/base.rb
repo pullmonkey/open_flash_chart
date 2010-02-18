@@ -81,8 +81,8 @@ module OpenFlashChart
       @offset = v ? true : false
     end
 
-    def set_colours(colour, grid_colour)
-      @colour      = colour
+    def set_colours(colours, grid_colour)
+      @colours     = colours
       @grid_colour = grid_colour
     end
 

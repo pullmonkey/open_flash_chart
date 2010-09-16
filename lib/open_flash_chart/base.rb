@@ -37,7 +37,7 @@ module OpenFlashChart
       # 22) dot_style to dot-style
       # 23) hollow_dot to hollow-dot
       # 24) default_dot_style to dot-style
-      returning self.to_json2 do |output|
+      self.to_json2.tap do |output|
         output.gsub!("threed","3d")
         output.gsub!("default_dot_style","dot-style")
         %w(font_size dot_size outline_colour halo_size start_angle tick_height grid_colour tick_length no_labels label_colour gradient_fill fill_alpha on_click spoke_labels visible_steps key_on_click barb_length on_show negative_colour line_style javascript_function_name pad_x pad_y align_x align_y dot_style hollow_dot).each do |replace|

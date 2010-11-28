@@ -42,7 +42,7 @@ module OpenFlashChart
       ## <script type="text/javascript" src="#{base}/javascripts/swfobject.js"></script>
 
       <<-HTML
-      <div id="#{div_name}"></div>
+      <div id="#{div_name}" class="open_flash_chart"></div>
       <script type="text/javascript">
         swfobject.embedSWF("#{base}#{swf_file_name}", "#{div_name}", "#{width}", "#{height}", "9.0.0", "expressInstall.swf",{"data-file":"#{url}"});
       </script>
